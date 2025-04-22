@@ -22,57 +22,58 @@
 
 
 from random import *
-from xml.dom.expatbuilder import ParseEscape
+
 from sõnastik import *
 
 
-# read = ['Mis on Python?:programmeerimiskeel', 'Eesti pealinn?:Tallinn', "Leedu pealinn?:Vilnus"]
-# kus_vas = {}
-# for rida in read:
-#     kysimus, vastus = rida.split(':')
-#     kus_vas[kysimus.strip()] = vastus.strip()
-# print(kus_vas)
+# # read = ['Mis on Python?:programmeerimiskeel', 'Eesti pealinn?:Tallinn', "Leedu pealinn?:Vilnus"]
+# # kus_vas = {}
+# # for rida in read:
+# #     kysimus, vastus = rida.split(':')
+# #     kus_vas[kysimus.strip()] = vastus.strip()
+# # print(kus_vas)
 
-# küsimused=list(kus_vas.keys())
-# while True:
-#     n=randint(0, len(read)-1)
-#     valitud_küsimus=küsimused[n]
-#     print(valitud_küsimus)
-#     vastus=input("Sisesta vastus: ")
-#     if kus_vas[valitud_küsimus].lower()==vastus.lower():
-#         print("Õige vastus")
-#         break
-#     else:
-#         print("Vale vastus")
-
-
+# # küsimused=list(kus_vas.keys())
+# # while True:
+# #     n=randint(0, len(read)-1)
+# #     valitud_küsimus=küsimused[n]
+# #     print(valitud_küsimus)
+# #     vastus=input("Sisesta vastus: ")
+# #     if kus_vas[valitud_küsimus].lower()==vastus.lower():
+# #         print("Õige vastus")
+# #         break
+# #     else:
+# #         print("Vale vastus")
 
 
-print("Welcome to the one and only estonian-russian-english dictionary!")
-print()
 
+
+
+hello()
 while True:
+    print("Main menu")
+    print()
     print("""
 
-    1. loob kolme keele sõnastiku
+    1. Create a three language dictionary
 
-    2. otsib sõna mistahes keelest ja kuvab teised tõlked
+    2. Search for a word in created dictionary
 
-    3. lisab uue sõna kolme keelde
+    3. Add a word and its translations to the dictionary
 
-    4. parandab olemasoleva sõna
+    4. Corrects an exicting word
 
-    5. kuvab kogu sõnastiku
+    5. Shows the entire dictionary 
 
-    6. küsib kasutajalt, millisest keelest millisesse ta soovib tõlkida
+    6. Translate a word
 
-    7. teadmiste kontroll juhuslike sõnadega
+    7. A test of knowledge
 
-    8. kuvab testi lõpptulemuse
+    8. Test result
 
-    9. küsib sisendi ja kontrollib tühjust
+    9. Write anything
 
-    10. ütleb sõna kõva häälega
+    10. Spells a word
 
     11.  exit
 
@@ -86,7 +87,7 @@ while True:
     elif vastus==3:
         add_word(sõnastik)
     elif vastus==4:
-        4
+        correct_word(sõnastik)
     elif vastus==5:
         print(sõnastik)
     elif vastus==6:
@@ -96,12 +97,10 @@ while True:
     elif vastus==8:
         print(f"Score {score}")
     elif vastus==9:
-        9
+        kysi_kasutajalt_sisestus()
     elif vastus==10:
-        10
+        raagi(input("Write a word to be spelled: "))
     elif vastus==11:
-        
-    
         print("Nägemist")
         break
 
@@ -131,3 +130,4 @@ while True:
 #                 print(e)
                 
 #                 break
+
