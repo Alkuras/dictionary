@@ -81,19 +81,19 @@ while True:
  """)
     vastus=int(input())
     if vastus==1:
-        sõnastik=create_3_lang_dict()
+        create_3_lang_dict()
     elif vastus==2:
-             search_for_a_word(sõnastik)
+             search_for_a_word()
     elif vastus==3:
-        add_word(sõnastik)
+        add_word()
     elif vastus==4:
-        correct_word(sõnastik)
+        correct_word()
     elif vastus==5:
-        print(sõnastik)
+        print()
     elif vastus==6:
-        translate(sõnastik)
+        translate()
     elif vastus==7:
-        score=test(sõnastik)
+        score=test()
     elif vastus==8:
         print(f"Score {score}")
     elif vastus==9:
@@ -104,30 +104,6 @@ while True:
         print("Nägemist")
         break
 
-# est = ['koer', 'kass', 'maja', 'auto', 'päike']
-# rus = ['собака', 'кошка', 'дом', 'машина', 'солнце']
-# eng = ['dog', 'cat', 'house', 'car', 'sun']
-# sõnastik = []
-# for e, r, g in zip(est, rus, eng):
-#     sõnastik.append({'est': e, 'rus': r, 'eng': g})
-# # print(sõnastik)
-# # print(sõnastik[3]["rus"])
-# # print(len(sõnastik))
-# # for e in sõnastik:
-# #     print(e.values())
-
-# #     listik=list(e)
-# #     print(listik)
-# word=input("Input a word of interest ")
-# lang=input("Language in which the word is searched. est/eng/rus ")
-# if word.isalpha():
-    
-
-#         for e in sõnastik:
-           
-            
-#             if word in e[lang]:
-#                 print(e)
-                
-#                 break
-
+# create_3_lang_dictf()
+# listik=["õ","ä","ы","з"]
+# Kirjuta_failisse("fial.txt",listik)

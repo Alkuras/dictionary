@@ -1,0 +1,1 @@
+﻿[{"est": "koer", "rus": "\u0441\u043e\u0431\u0430\u043a\u0430", "eng": "dog"}, {"est": "kass", "rus": "\u043a\u043e\u0448\u043a\u0430", "eng": "cat"}, {"est": "maja", "rus": "\u0434\u043e\u043c", "eng": "house"}, {"est": "auto", "rus": "\u043c\u0430\u0448\u0438\u043d\u0430", "eng": "car"}, {"est": "p\u00e4ike", "rus": "\u0441\u043e\u043b\u043d\u0446\u0435", "eng": "sun"}]
