@@ -1,9 +1,20 @@
 
 import json
+import ast 
+  
 from random import randint
 
 
 import pyttsx3
+def ast_read():
+    jarjend=[]
+    with open('sõnastik.txt',encoding="utf8") as f: 
+        data = f.read() 
+        o=ast.literal_eval(data)
+        for rida in f:
+            rida=ast.literal_eval(rida)
+            jarjend.append((rida.strip()))
+    return jarjend
 
 def find(user_input):
     for item in "dictionary.json":
@@ -11,7 +22,7 @@ def find(user_input):
             return item["id"]
 
 def Loe_failist(fail:str)->list:
-    f=open(fail,'r',encoding="utf-8-sig")
+    f=open(fail,'r',encoding="utf8")
     jarjend=[]
     for rida in f:
         jarjend.append(rida.strip())
@@ -19,32 +30,14 @@ def Loe_failist(fail:str)->list:
     return jarjend
 
 def Kirjuta_failisse(fail:str,jarjend:list):
-    f=open(fail,'w',encoding="utf-8-sig")
+    f=open(fail,'w',encoding="utf8")
     for line in jarjend:
-        f.write(line)
+        f.write(str(line)+"\n")
     f.close()
 
 def writefile(fail:str,d:list):
     with open(fail, 'w',encoding="utf8") as f:
         json.dump(d, f)
-
-def create_3_lang_dict()->list:
-    """Creates basic 3 language dictionary"""
-
-    est = ['koer', 'kass', 'maja', 'auto', 'päike']
-    rus = ['собака', 'кошка', 'дом', 'машина', 'солнце']
-    eng = ['dog', 'cat', 'house', 'car', 'sun']
-    sõnastik = []
-    for e, r, g in zip(est, rus, eng):
-        sõnastik.append({'est': e, 'rus': r, 'eng': g})
-    writefile("dictionary.json",sõnastik)
-    
-    print("Creation completed!")
-    return sõnastik
-
-
-
-
 
 # def create_3_lang_dict()->list:
 #     """Creates basic 3 language dictionary"""
@@ -55,40 +48,38 @@ def create_3_lang_dict()->list:
 #     sõnastik = []
 #     for e, r, g in zip(est, rus, eng):
 #         sõnastik.append({'est': e, 'rus': r, 'eng': g})
-        
+#     writefile("dictionary.json",sõnastik)
+    
 #     print("Creation completed!")
 #     return sõnastik
 
-# def search_for_a_word(dictionary:list):
-#     """Searches in the dictionary for a specific word
-#     :dictionary:list: created by "create_3_lang_dict" function
-#     """
-#     word=input("Input a word of interest ")
-    
-#     if word.isalpha():
-#         lang=input("Language in which the word is searched. est/eng/rus ")
-#         if lang=="est" or "rus" or "eng":
-#             for e in dictionary:
 
-#               if word.lower() in e[lang]:
-#                 print(e)
-#                 break   
-#         else:
-#             print("Choose the right language")
-#     else:
-#         print("Write a word")
 
-def search_for_a_word():
+
+
+def create_3_lang_dict()->list:
+    """Creates basic 3 language dictionary"""
+
+    est = ['koer', 'kass', 'maja', 'auto', 'päike']
+    rus = ['собака', 'кошка', 'дом', 'машина', 'солнце']
+    eng = ['dog', 'cat', 'house', 'car', 'sun']
+    sõnastik = []
+    for e, r, g in zip(est, rus, eng):
+        sõnastik.append({'est': e, 'rus': r, 'eng': g})
+        
+    print("Creation completed!")
+    return sõnastik
+
+def search_for_a_word(dictionary:list):
     """Searches in the dictionary for a specific word
     :dictionary:list: created by "create_3_lang_dict" function
     """
     word=input("Input a word of interest ")
     
     if word.isalpha():
-        lang=input("Language in which the word is searched. est 0/eng 1/rus 2 ")
-        p=json.loads("dictionary.json")
+        lang=input("Language in which the word is searched. est/eng/rus ")
         if lang=="est" or "rus" or "eng":
-            for e in p:
+            for e in dictionary:
 
               if word.lower() in e[lang]:
                 print(e)
@@ -97,6 +88,26 @@ def search_for_a_word():
             print("Choose the right language")
     else:
         print("Write a word")
+
+# def search_for_a_word():
+#     """Searches in the dictionary for a specific word
+#     :dictionary:list: created by "create_3_lang_dict" function
+#     """
+#     word=input("Input a word of interest ")
+    
+#     if word.isalpha():
+#         lang=input("Language in which the word is searched. est 0/eng 1/rus 2 ")
+#         p=json.loads("dictionary.json")
+#         if lang=="est" or "rus" or "eng":
+#             for e in p:
+
+#               if word.lower() in e[lang]:
+#                 print(e)
+#                 break   
+#         else:
+#             print("Choose the right language")
+#     else:
+#         print("Write a word")
              
 
 def add_word(dictionary):
@@ -241,3 +252,12 @@ def hello():
     greet="Welcome, dear user"
     print(greet)
     raagi(greet)
+
+def save(sõnastik:list):
+    """"""
+    Kirjuta_failisse("sõnastik.txt",sõnastik)
+    print("Saved")
+
+def impor()->list:
+    """"""
+    Loe_failist("sõnastik.txt")

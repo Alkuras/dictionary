@@ -47,7 +47,7 @@ from sõnastik import *
 
 
 
-
+sõnastik=[]
 
 hello()
 while True:
@@ -55,7 +55,7 @@ while True:
     print()
     print("""
 
-    1. Create a three language dictionary
+    1. Create a three language dictionary or import exsisting one 
 
     2. Search for a word in created dictionary
 
@@ -75,25 +75,33 @@ while True:
 
     10. Spells a word
 
-    11.  exit
+    11. Save
+
+    12. Exit
 
     
  """)
+    
     vastus=int(input())
     if vastus==1:
-        create_3_lang_dict()
+        v=int(input("Import - 1,  Create - 2"))
+        if v==2:
+            sõnastik=create_3_lang_dict()
+        elif v==1:
+            sõnastik=ast_read()
+            print(sõnastik)
     elif vastus==2:
-             search_for_a_word()
+             search_for_a_word(sõnastik)
     elif vastus==3:
-        add_word()
+        add_word(sõnastik)
     elif vastus==4:
-        correct_word()
+        correct_word(sõnastik)
     elif vastus==5:
-        print()
+        print(sõnastik)
     elif vastus==6:
-        translate()
+        translate(sõnastik)
     elif vastus==7:
-        score=test()
+        score=test(sõnastik)
     elif vastus==8:
         print(f"Score {score}")
     elif vastus==9:
@@ -101,9 +109,13 @@ while True:
     elif vastus==10:
         raagi(input("Write a word to be spelled: "))
     elif vastus==11:
+        save(sõnastik)
+    elif vastus==12:
         print("Nägemist")
         break
 
 # create_3_lang_dictf()
 # listik=["õ","ä","ы","з"]
 # Kirjuta_failisse("fial.txt",listik)
+
+# sõnastik=impor()
